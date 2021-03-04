@@ -1,3 +1,72 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  background-image: url(/images/toppage-decoration.jpg), url(/images/toppage-decoration.jpg);
+  background-position: right -28vw top 60vh, left -20vw top -54vh;
+  background-size: 100vh;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #F2F9F7;
+  width: 100vw;
+  height: 100vh;
+}
+
+.head-contents{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user{
+  color: #EEF1EA;
+  font-size: 2vh;
+  text-align:right;
+  background-color: #2B8099;
+  border: 1px solid #2B8099;
+  border-radius: 20%;
+  margin: 3vh 4vh 1vh 1vh;
+  padding: 1vh 2vh;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.icon{
+  height: 60vh;
+  width: 60vh;
+  margin-top:10vh;
+  margin-left: 15vh;
+}
+
+.content{
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top:10vh;
+  margin-right: 15%;
+  margin-bottom: 7vh;
+}
+
+.content-title h2 span{
+  font-size: 3vh;
+  color: #2B8099;
+}
+
+.content-discribe{
+  font-size: 2vh;
+  margin: 3.5vh 0;
+}
+
+.index-content{
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.index{
+  font-size: 2vh;
+  color: #EEF1EA;
+  background-color: #2B8099;
+  border: 1px solid #2B8099;
+  border-radius: 20%;
+  padding: 1.5vh 2.5vh;
+}
