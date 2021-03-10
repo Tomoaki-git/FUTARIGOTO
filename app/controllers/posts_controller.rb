@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     if @post.save
-      redirect_to :index
+      redirect_to action: :index
     else
       render :new
     end
@@ -32,6 +32,9 @@ class PostsController < ApplicationController
       :second_choice,
       :third_choice,
       :comment
+    )
+    .merge(
+      user_id: current_user.id
     )
   end
 end
