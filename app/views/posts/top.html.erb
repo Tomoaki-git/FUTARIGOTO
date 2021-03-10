@@ -1,0 +1,25 @@
+<header>
+  <div class="head-contents">
+    <%= link_to '> ログイン', new_user_session_path, class: "user" %>
+    <%= link_to '> 新規登録', new_user_registration_path, class: "user" %>
+  </div>
+</header>
+<body class="posts-body-contents">
+  <div class="main">
+    <figure>
+      <img src="/images/icon.jpg" alt="icon" class="top-icon">
+    </figure>
+    <div class="content">
+      <div class="content-title">
+        <h2><span><ruby>3<rt>・</rt>日<rt>・</rt>間<rt>・</rt>だけ</ruby>の相談相手</span></h2>
+      </div>
+      <div class="content-discribe">
+        <p>内容1</p>
+        <p>内容2</p>
+      </div>
+      <div class="index-content">
+        <%= link_to '> 投稿一覧へ', posts_path, class: "index" %>
+      </div>
+    </div>
+  </div>
+</body>
