@@ -13,6 +13,8 @@
   height: 20vh;
 }
 
+// header2, footer2
+
 .second_header{
   background-color: #F2F9F7;
   display: flex;
@@ -26,4 +28,19 @@
 .second_footer{
   background-color: #F2F9F7;
   height: 20vh;
+}
+
+.new_post{
+  color: #EEF1EA;
+  text-decoration: none;
+  background-color: #2B8099;
+  border: 1px solid #2B8099;
+  border-radius: 14px;
+  padding: 1.5vh 2.5vh;
+}
+
+// errors
+
+.error-alert{
+  text-align: center;
 }

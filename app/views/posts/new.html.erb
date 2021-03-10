@@ -1,0 +1,68 @@
+<div class="posts-header">
+  <%= render "shared/second-header"%>
+</div>
+
+<%= form_with model: @post, url: posts_path, class: 'registration-main', local: true do |f| %>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <p>Write Freely!</p>
+      <h1 class='form-header-text'>
+        新規投稿
+      </h1>
+    </div>
+
+    <%= render partial: "shared/error_messages", locals: { thing: @post }, model: f.object %>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">タイトル[Title]</label>
+        <span class="indispensable">*</span>
+      </div>
+      <%= f.text_field :title, class:"input-default", id:"title", maxlength:"20" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">内容[Content]</label>
+        <span class="indispensable">*</span>
+      </div>
+      <%= f.text_area :content, size: "40x10", class:"input-default", id:"content", autofocus: true %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">選択肢：1つめ</label>
+      </div>
+      <%= f.text_field :first_choice, class:"input-default", id:"first_choice", maxlength:"20" %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">選択肢：2つめ</label>
+      </div>
+      <%= f.text_field :second_choice, class:"input-default", id:"second_choice", maxlength:"20" %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">選択肢：3つめ</label>
+      </div>
+      <%= f.text_field :third_choice, class:"input-default", id:"third_choice", maxlength:"20" %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">みんなのコメント欲しい？[Comment]</label>
+        <p class="form-text">※チェックなしの場合、コメント欄は開放されません。</p>
+      </div>
+      <%= f.check_box :comment, class:"input-default", id:"thrid_choice", maxlength:"20" %>
+    </div>
+
+    <div class='register-btn'>
+      <%= f.submit "投稿" ,class:"register-green-btn" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="posts-footer">
+  <%= render "shared/second-footer"%>
+</div>
