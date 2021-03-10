@@ -1,9 +1,7 @@
 class Post < ApplicationRecord
 belongs_to :user
 
-  with_options presence: true do
-    validates :title
-    validates :content
-    validates :comment
-  end
+    validates :title, presence: { message: 'を入力してください。'}
+    validates :content, presence: { message: 'を入力してください。'}
+
 end

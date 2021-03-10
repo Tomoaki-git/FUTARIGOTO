@@ -31,11 +31,16 @@
 }
 
 .new_post{
-  // font-size: 2vh;
   color: #EEF1EA;
   text-decoration: none;
   background-color: #2B8099;
   border: 1px solid #2B8099;
   border-radius: 14px;
   padding: 1.5vh 2.5vh;
+}
+
+// errors
+
+.error-alert{
+  text-align: center;
 }

@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+
   def top
     
   end
 
   def index
-    @post = Post.all
+    @post = Post.all.order(created_at: :DESC)
   end
 
   def new
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post.create
+    @post = Post.create(post_params)
     if @post.save
       redirect_to :index
     else
@@ -32,6 +33,5 @@ class PostsController < ApplicationController
       :third_choice,
       :comment
     )
-    .merge(user_id: current_user.id)
   end
 end
