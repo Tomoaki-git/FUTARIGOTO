@@ -30,15 +30,16 @@
 
 .posts{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .posts-content{
   position: relative;
-  height: 40vh;
-  width: 20vw;
+  height: auto;
+  width: 200px;
   margin: 30px;
-  padding: 20px;
+  padding: 20px 20px 60px;
   border: 2px solid #2B8099;
   border-radius: 3px
 }

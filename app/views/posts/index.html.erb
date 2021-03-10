@@ -8,26 +8,44 @@
       <p class="posts-maintitle">POSTS</p>
       <p class="posts-subtitle">投稿一覧</p>
     </div>
+
     <div class="posts">
-      <div class="posts-content">
-        <p class="post-title">転職を考えています。</p>
-        <div class="post-content">
-          <p>私は社会人二年目の24歳です。毎日の生活に不満はありませんが、その分何も変わりない毎日が退屈してきました。そこで、最近流行りのプログラミングを学ぼうと思うのですが、いかがでしょうか？みなさんの意見をおきかせいただきたいです！！</p>
+      <% @post.each do |post| %>
+        <div class="posts-content">
+          <p class="post-title">
+            <%= post.title %>
+          </p>
+          <div class="post-content">
+            <%= post.content %>
+          </div>
+          <ul>
+            <% if post.first_choice.present? %>
+              <div class="post-choice-wrapper">
+                <li class="post-choice">
+                  <%= post.first_choice %>
+                </li>
+              </div>
+            <% end %>
+            <% if post.second_choice.present? %>
+              <div class="post-choice-wrapper">
+                <li class="post-choice">
+                  <%= post.second_choice %>
+                </li>
+              </div>
+            <% end %>
+            <% if post.third_choice.present? %>
+              <div class="post-choice-wrapper">
+                <li class="post-choice">
+                  <%= post.third_choice %>
+                </li>
+              </div>
+            <% end %>
+          </ul>
+          <img class="heart", id='heart', src='/assets/good-btn.jpg'>
         </div>
-        <ul>
-          <div class="post-choice-wrapper">
-            <li class="post-choice">A</li>
-          </div>
-          <div class="post-choice-wrapper">
-            <li class="post-choice">B</li>
-          </div>
-          <div class="post-choice-wrapper">
-             <li class="post-choice">C</li>
-          </div>
-        </ul>
-        <img class="heart", id='heart', src='/assets/good-btn.jpg'>
-      </div>
+       <% end %>
     </div>
+
   </div>
 </div>
 
