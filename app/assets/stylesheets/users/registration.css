@@ -1,0 +1,143 @@
+.devise{
+  position: relative;
+}
+
+.registration-main {
+  height: 100%;
+  width: 100%;
+  min-width: 800px;
+  background-color: #F2F9F7;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrap {
+  width: 70%;
+  background-color: white;
+  padding-bottom: 50px;
+}
+
+.form-header {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.form-header p{
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+.form-header-text {
+  line-height: 70px;
+  border-bottom: 1px solid #f5f5f5;
+  font-weight: bold;
+}
+
+.form-group {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.form-group:first-child {
+  padding: 0;
+}
+
+.form-text-wrap {
+  width: 100%;
+  height: 20%;
+}
+
+.form-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.indispensable{
+  color: #f08080;
+}
+
+.input-default {
+  width: 100%;
+  margin-top: 5px;
+  height: 40px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.info-text {
+  color: #888;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.form-info-header {
+  font-weight: bold;
+}
+
+.form-info-text {
+  font-size: 15px;
+}
+
+.input-birth-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-birth-wrap select {
+  width: 75px;
+  margin-top: 5px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.input-birth-wrap p {
+  line-height: 60px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.form-bottom-text {
+  font-size: 15px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-bottom-text:last-child {
+  margin: 0;
+  padding-bottom: 50px;
+}
+
+.register-btn {
+  width: 20%;
+  margin: 30px auto 0;
+}
+
+.register-green-btn {
+  width: 100%;
+  background: #2B8099;
+  border: 1px solid #2B8099;
+  border-radius: 14px;
+  color: #fff;
+  line-height: 48px;
+  font-size: 18px;
+  cursor: pointer;
+}
