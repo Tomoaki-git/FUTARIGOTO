@@ -1,4 +1,4 @@
-body {
+.posts-body-contents {
   background-image: url(/images/toppage-decoration.jpg), url(/images/toppage-decoration.jpg);
   background-position: right -28vw top 60vh, left -20vw top -54vh;
   background-size: 100vh;
@@ -19,9 +19,10 @@ body {
   text-align:right;
   background-color: #2B8099;
   border: 1px solid #2B8099;
-  border-radius: 20%;
+  border-radius: 14px;
   margin: 3vh 4vh 1vh 1vh;
   padding: 1vh 2vh;
+  text-decoration: none;
 }
 
 .main{
@@ -30,7 +31,7 @@ body {
   position: relative;
 }
 
-.icon{
+.top-icon{
   height: 60vh;
   width: 60vh;
   margin-top:10vh;
@@ -65,8 +66,9 @@ body {
 .index{
   font-size: 2vh;
   color: #EEF1EA;
+  text-decoration: none;
   background-color: #2B8099;
   border: 1px solid #2B8099;
-  border-radius: 20%;
+  border-radius: 14px;
   padding: 1.5vh 2.5vh;
 }
