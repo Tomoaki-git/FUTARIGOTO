@@ -1,0 +1,72 @@
+<div class="posts-header">
+  <%= render "shared/first-header"%>
+</div>
+
+<div class="post_show_content">
+  <div class="post_show_header">
+    <h1 class="post_show_title">POST</h1>
+    <p class="post_show_subtitle">投稿内容</p>
+  </div>
+
+  <div class="post_show_post_title">
+    <%= @post.title %>
+  </div>
+
+  <div class="post_show_post_content">
+    <%= @post.content %>
+  </div>
+
+  <ul class="post_show_post_choices">
+    <% if @post.first_choice.present? %>
+      <div class="post-choice-wrapper">
+        <li class="post-choice">
+          <%= @post.first_choice %>
+        </li>
+      </div>
+    <% end %>
+    <% if @post.second_choice.present? %>
+      <div class="post-choice-wrapper">
+        <li class="post-choice">
+          <%= @post.second_choice %>
+        </li>
+      </div>
+    <% end %>
+    <% if @post.third_choice.present? %>
+      <div class="post-choice-wrapper">
+        <li class="post-choice">
+          <%= @post.third_choice %>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
+<div class="content_comments">
+
+  <div class="content_comments_header">
+    <p class="content_comment_title">COMMENT</p>
+    <p class="content_comment_subtitle">コメント</p>
+  </div>
+
+  <div class="comment_container">
+    <%= form_with(local: true) do |f| %>
+      <div class="field">
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+      </div>
+      <div class="action">
+        <%= f.submit "SEND" ,class: "submit"%>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="content_comment">
+    <span class="content_comment_nickname">Nickname:</span>
+    <span class="content_comment_content">コメント内容</span>
+  </div>
+
+</div>
+
+
+<div class="posts-footer">
+  <%= render "shared/first-footer"%>
+</div>
