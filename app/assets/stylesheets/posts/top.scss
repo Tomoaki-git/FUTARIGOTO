@@ -25,6 +25,18 @@
   text-decoration: none;
 }
 
+.user:hover{
+  color:#2B8099;
+  font-size: 2vh;
+  text-align:right;
+  background-color: #FCFCFC;
+  border: 1px solid #2B8099;
+  border-radius: 14px;
+  padding: 1vh 2vh;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .main{
   display: flex;
   justify-content: space-between;
@@ -71,4 +83,16 @@
   border: 1px solid #2B8099;
   border-radius: 14px;
   padding: 1.5vh 2.5vh;
+}
+
+.index:hover{
+  color:#2B8099;
+  font-size: 2vh;
+  text-align:right;
+  background-color: #FCFCFC;
+  border: 1px solid #2B8099;
+  border-radius: 14px;
+  padding: 1.5vh 2.5vh;
+  text-decoration: none;
+  cursor: pointer;
 }

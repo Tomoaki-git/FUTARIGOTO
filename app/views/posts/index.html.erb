@@ -20,7 +20,7 @@
             <div class="post-content">
               <%= post.content %>
             </div>
-          
+          <% end %>
             <ul>
               <% if post.first_choice.present? %>
                 <div class="post-choice-wrapper">
@@ -45,7 +45,6 @@
               <% end %>
             </ul>
             <img class="heart", id='heart', src='/assets/good-btn.jpg'>
-          <% end %>
         </div>
         
       <% end %>

@@ -127,17 +127,32 @@
 }
 
 .register-btn {
-  width: 20%;
-  margin: 30px auto 0;
+  width: 50%;
+  margin: 0 auto;
 }
 
-.register-green-btn {
-  width: 100%;
-  background: #2B8099;
+.register-green-btn{
+  display: block;
+  color: #EEF1EA;
+  font-size: 15px;
+  background-color: #2B8099;
   border: 1px solid #2B8099;
   border-radius: 14px;
-  color: #fff;
-  line-height: 48px;
-  font-size: 18px;
+  padding: 1vh 2vh;
+  margin: 20px auto 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register-green-btn:hover{
+  display: block;
+  color:#2B8099;
+  font-size: 15px;
+  background-color: #FCFCFC;
+  border: 1px solid #2B8099;
+  border-radius: 14px;
+  padding: 1vh 2vh;
+  margin: 20px auto 0;
+  text-decoration: none;
   cursor: pointer;
 }
