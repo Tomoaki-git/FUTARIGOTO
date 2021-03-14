@@ -1,7 +1,13 @@
 <header>
   <div class="head-contents">
-    <%= link_to '> ログイン', new_user_session_path, class: "user" %>
-    <%= link_to '> 新規登録', new_user_registration_path, class: "user" %>
+    <% if user_signed_in? %>
+      <%= link_to current_user.nickname, "#", class: "user" %>
+      <%= link_to '> 新規投稿', new_post_path, class: "user" %>
+      <%= link_to '> ログアウト', destroy_user_session_path, method: :delete, class: "user" %>
+    <% else %>
+      <%= link_to '> ログイン', new_user_session_path, class: "user" %>
+      <%= link_to '> 新規登録', new_user_registration_path, class: "user" %>
+    <% end %>
   </div>
 </header>
 <body class="posts-body-contents">
@@ -11,11 +17,11 @@
     </figure>
     <div class="content">
       <div class="content-title">
-        <h2><span><ruby>3<rt>・</rt>日<rt>・</rt>間<rt>・</rt>だけ</ruby>の相談相手</span></h2>
+        <h2><span><ruby>3<rt>・</rt>日<rt>・</rt>間<rt>・</rt>だけの相談</ruby></span></h2>
       </div>
-      <div class="content-discribe">
-        <p>内容1</p>
-        <p>内容2</p>
+      <div class="content-discribe-wrapper">
+        <p class="content-discribe">☆投稿内容は3日間だけ投稿画面に表示されます。(投稿者のみ3日後も確認できます。)</p>
+        <p class="content-discribe">☆誰かの意見を匿名で募集することができます。</p>
       </div>
       <div class="index-content">
         <%= link_to '> 投稿一覧へ', posts_path, class: "index" %>

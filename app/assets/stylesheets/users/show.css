@@ -1,0 +1,46 @@
+.user_show_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user_table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table__col{
+  font-size: 30px;
+  margin-top: 1vh;
+  padding: 1vh 0;
+  padding: 2vh 0;
+  border-bottom: 2px solid #2B8099;
+}
+
+.user_showpage_heading{
+  font-size: 20px;
+  margin-bottom: 2vh;
+  padding: 0 0 2vh 0;
+  border-bottom: 2px solid #2B8099;
+}
+
+.user_edit_wrapper{
+  padding: 0 0 2vh 0;
+  border-bottom: 2px solid #2B8099;
+  margin: 2vh;
+}
+
+.user_edit{
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.user_edit:hover{
+  font-size: 20px;
+  color: #2B8099;
+  text-decoration: none;
+}

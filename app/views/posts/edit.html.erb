@@ -2,12 +2,12 @@
   <%= render "shared/second-header"%>
 </div>
 
-<%= form_with model: @post, url: posts_path, class: 'registration-main', local: true do |f| %>
+<%= form_with model: @post, url: post_path, class: 'registration-main', method: :put, local: true do |f| %>
   <div class='form-wrap'>
     <div class='form-header'>
       <p>Write Freely!</p>
       <h1 class='form-header-text'>
-        新規投稿
+        投稿編集
       </h1>
     </div>
 
@@ -55,13 +55,20 @@
         <span class="indispensable">*</span>
         <p class="form-text">※チェックなしの場合、コメント欄は開放されません。</p>
       </div>
-      <%= f.check_box :comment, class:"input-default", maxlength:"20" %>
+      <%= f.check_box :comment, class:"input-default", max_length:"20" %>
+    </div>
+
+    <div class="form-group">
+      <div class="form-text-wrap-red">
+        <p>※投票されている投稿については編集すると投票内容が更新されません。ご注意ください。</p>
+      </div>
     </div>
 
     <div class='register-btn'>
-      <%= f.submit "投稿" ,class:"register-green-btn" %>
+      <div class="form-text-wrap">
+        <%= f.submit "編集完了" ,class:"register-green-btn" %>
+      </div>
     </div>
-  </div>
 <% end %>
 
 <div class="posts-footer">

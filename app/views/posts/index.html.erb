@@ -8,48 +8,9 @@
       <p class="posts-maintitle">POSTS</p>
       <p class="posts-subtitle">投稿一覧</p>
     </div>
-
-    <div class="posts">
-      <% @post.each do |post| %>
-        
-        <div class="posts-content">
-          <%= link_to "/posts/#{post.id}" do%>
-            <p class="post-title">
-              <%= post.title %>
-            </p>
-            <div class="post-content">
-              <%= post.content %>
-            </div>
-          <% end %>
-            <ul>
-              <% if post.first_choice.present? %>
-                <div class="post-choice-wrapper">
-                  <li class="post-choice">
-                    <%= post.first_choice %>
-                  </li>
-                </div>
-              <% end %>
-              <% if post.second_choice.present? %>
-                <div class="post-choice-wrapper">
-                  <li class="post-choice">
-                    <%= post.second_choice %>
-                  </li>
-                </div>
-              <% end %>
-              <% if post.third_choice.present? %>
-                <div class="post-choice-wrapper">
-                  <li class="post-choice">
-                    <%= post.third_choice %>
-                  </li>
-                </div>
-              <% end %>
-            </ul>
-            <img class="heart", id='heart', src='/assets/good-btn.jpg'>
-        </div>
-        
-      <% end %>
-    </div>
-
+    
+    <%= render partial: 'posts', locals: {posts: @posts} %>
+    
   </div>
 </div>
 

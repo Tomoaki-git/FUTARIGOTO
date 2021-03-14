@@ -1,0 +1,138 @@
+<div class="posts">
+  <% posts.each do |post| %>
+    <% if post.created_at >= Date.today.days_ago(4) || post.id == current_user.id%>
+      <div class="posts-content">
+
+        <%= link_to "#{post.user.nickname}さん", user_path(post.user.id) %>
+        <p>
+          <%= "あと#{((post.created_at - DateTime.now)/ 60 / 60 / 24 + 4).floor}"+"日" %>
+        </p>
+        <%= link_to "/posts/#{post.id}" do%>
+          <p class="post-title">
+            <%= post.title %>
+          </p>
+
+          <div class="post-content">
+            <%= post.content %>
+          </div>
+          <div class="heart-wrapper">
+            <%= link_to '♡', post_likes_path(post), class: "heart", method: :post  %>
+            <%= post.likes.count %>
+          </div>
+
+        <% end %>
+
+        <% if user_signed_in? %>
+          <ul>
+            <% if post.first_choice.present? %>
+              <%= link_to create_first_post_choice_counts_path(post), params: { first_choice_count: 1 }, method: :post do %>
+                <div class="post-choice-wrapper">
+                  <li class="post-choice">
+                    <% total_counts_first= [] %>
+                    <% choice_counts = post.choice_counts %>
+                    <% choice_counts.each do |choice_counts| %>
+                      <% if choice_counts.first_choice_count == true %>
+                        <% total_counts_first<< 1 %>
+                      <% end %>
+                    <% end %>
+                    <%= total_counts_first.length %>票：
+                      <%= post.first_choice %>
+                  </li>
+                </div>
+              <% end %>
+            <% end %>
+
+            <% if post.second_choice.present? %>
+              <%= link_to create_second_post_choice_counts_path(post), params: { first_choice_count: 1 }, method: :post do %>
+                <div class="post-choice-wrapper">
+                  <li class="post-choice">
+                    <% total_counts_second = [] %>
+                    <% choice_counts = post.choice_counts %>
+                    <% choice_counts.each do |choice_counts| %>
+                      <% if choice_counts.second_choice_count == true %>
+                        <% total_counts_second << 1 %>
+                      <% end %>
+                    <% end %>
+                    <%= total_counts_second.length %>票：
+                      <%= post.second_choice %>
+                  </li>
+                </div>
+              <% end %>
+            <% end %>
+
+            <% if post.third_choice.present? %>
+              <%= link_to create_third_post_choice_counts_path(post), params: { first_choice_count: 1 }, method: :post do %>
+                <div class="post-choice-wrapper">
+                  <li class="post-choice">
+                    <% total_counts_third = [] %>
+                    <% choice_counts = post.choice_counts %>
+                    <% choice_counts.each do |choice_counts| %>
+                      <% if choice_counts.third_choice_count == true %>
+                        <% total_counts_third << 1 %>
+                      <% end %>
+                    <% end %>
+                    <%= total_counts_third.length %>票：
+                      <%= post.third_choice %>
+                  </li>
+                </div>
+              <% end %>
+            <% end %>
+          </ul>
+        <% else %>
+        <p>※投票：するには、ログインが必要です。</p>
+          <ul>
+            <% if post.first_choice.present? %>
+                <div class="post-choice-wrapper">
+                  <li class="post-choice">
+                    <% total_counts_first= [] %>
+                    <% choice_counts = post.choice_counts %>
+                    <% choice_counts.each do |choice_counts| %>
+                      <% if choice_counts.first_choice_count == true %>
+                        <% total_counts_first<< 1 %>
+                      <% end %>
+                    <% end %>
+                    <%= total_counts_first.length %>票：
+                      <%= post.first_choice %>
+                  </li>
+                </div>
+            <% end %>
+
+            <% if post.second_choice.present? %>
+              <div class="post-choice-wrapper">
+                <li class="post-choice">
+                  <% total_counts_second = [] %>
+                  <% choice_counts = post.choice_counts %>
+                  <% choice_counts.each do |choice_counts| %>
+                    <% if choice_counts.second_choice_count == true %>
+                      <% total_counts_second << 1 %>
+                    <% end %>
+                  <% end %>
+                  <%= total_counts_second.length %>票：:
+                    <%= post.second_choice %>
+                </li>
+              </div>
+            <% end %>
+
+            <% if post.third_choice.present? %>
+              <div class="post-choice-wrapper">
+                <li class="post-choice">
+                  <% total_counts_third = [] %>
+                  <% choice_counts = post.choice_counts %>
+                  <% choice_counts.each do |choice_counts| %>
+                    <% if choice_counts.third_choice_count == true %>
+                      <% total_counts_third << 1 %>
+                    <% end %>
+                  <% end %>
+                  <%= total_counts_third.length %>票：：
+                    <%= post.third_choice %>
+                </li>
+              </div>
+            <% end %>
+          </ul>
+        <% end %>
+
+
+      </div>
+    <% end %>
+  <% end %>
+</div>

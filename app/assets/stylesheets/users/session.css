@@ -4,24 +4,27 @@
 }
 
 .login-green-btn {
-  width: 100%;
-  background: #2B8099;
+  display: block;
+  color: #EEF1EA;
+  font-size: 15px;
+  background-color: #2B8099;
   border: 1px solid #2B8099;
   border-radius: 14px;
-  color: #fff;
-  line-height: 48px;
-  font-size: 18px;
+  padding: 1vh 2vh;
+  margin: 20px auto;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .login-green-btn:hover{
+  display: block;
   color:#2B8099;
   font-size: 15px;
-  text-align:right;
   background-color: #FCFCFC;
   border: 1px solid #2B8099;
   border-radius: 14px;
   padding: 1vh 2vh;
+  margin: 20px auto;
   text-decoration: none;
   cursor: pointer;
 }

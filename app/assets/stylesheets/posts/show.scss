@@ -4,6 +4,8 @@
   padding: 0 0 2vh 0;
   margin: 0 auto;
   border-bottom: 2px solid #2B8099;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .post_show_header,
@@ -111,3 +113,27 @@ textarea {
   margin: 1vh;
 }
 
+.show_comment{
+  text-align: center;
+}
+
+.post_show_edit_destroy{
+  margin-top: 2vh;
+  text-align: center;
+  text-decoration: none;
+  padding: 1vh;
+}
+
+.post_show_edit,
+.post_show_destroy{
+  color: black;
+  padding: 0.5vh;
+  margin: 1vh;
+  border: solid 1px #2B8099;
+}
+
+.content_comments_except{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 6vh;
+}

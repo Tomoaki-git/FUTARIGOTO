@@ -16,55 +16,167 @@
     <%= @post.content %>
   </div>
 
-  <ul class="post_show_post_choices">
-    <% if @post.first_choice.present? %>
-      <div class="post-choice-wrapper">
-        <li class="post-choice">
-          <%= @post.first_choice %>
-        </li>
-      </div>
+  <% if user_signed_in? %>
+    <div class="post-choice-wrapper">
+      <ul>
+        <% if @post.first_choice.present? %>
+          <%= link_to create_first_post_choice_counts_path(@post), params: { first_choice_count: 1 }, method: :post do %>
+            <div class="post-choice-wrapper-show">
+              <li class="post-choice">
+                <% total_counts_first= [] %>
+                <% choice_counts = @post.choice_counts %>
+                <% choice_counts.each do |choice_counts| %>
+                  <% if choice_counts.first_choice_count == true %>
+                    <% total_counts_first<< 1 %>
+                  <% end %>
+                <% end %>
+                <%= total_counts_first.length %>票
+                  <%= @post.first_choice %>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if @post.second_choice.present? %>
+          <%= link_to create_second_post_choice_counts_path(@post), params: { first_choice_count: 1 }, method: :post do %>
+            <div class="post-choice-wrapper-show">
+              <li class="post-choice">
+                <% total_counts_second = [] %>
+                <% choice_counts = @post.choice_counts %>
+                <% choice_counts.each do |choice_counts| %>
+                  <% if choice_counts.second_choice_count == true %>
+                    <% total_counts_second << 1 %>
+                  <% end %>
+                <% end %>
+                <%= total_counts_second.length %>票
+                  <%= @post.second_choice %>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if @post.third_choice.present? %>
+          <%= link_to create_third_post_choice_counts_path(@post), params: { first_choice_count: 1 }, method: :post do %>
+            <div class="post-choice-wrapper-show">
+              <li class="post-choice">
+                <% total_counts_third = [] %>
+                <% choice_counts = @post.choice_counts %>
+                <% choice_counts.each do |choice_counts| %>
+                  <% if choice_counts.third_choice_count == true %>
+                    <% total_counts_third << 1 %>
+                  <% end %>
+                <% end %>
+                <%= total_counts_third.length %>票
+                  <%= @post.third_choice %>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+  <p>※投票するには、ログインが必要です。</p>
+    <div class="post-choice-wrapper">
+      <ul>
+        <% if @post.first_choice.present? %>
+            <div class="post-choice-wrapper-show">
+              <li class="post-choice">
+                <% total_counts_first= [] %>
+                <% choice_counts = @post.choice_counts %>
+                <% choice_counts.each do |choice_counts| %>
+                  <% if choice_counts.first_choice_count == true %>
+                    <% total_counts_first<< 1 %>
+                  <% end %>
+                <% end %>
+                <%= total_counts_first.length %>票
+                  <%= @post.first_choice %>
+              </li>
+            </div>
+        <% end %>
+
+        <% if @post.second_choice.present? %>
+          <div class="post-choice-wrapper-show">
+            <li class="post-choice">
+              <% total_counts_second = [] %>
+              <% choice_counts = @post.choice_counts %>
+              <% choice_counts.each do |choice_counts| %>
+                <% if choice_counts.second_choice_count == true %>
+                  <% total_counts_second << 1 %>
+                <% end %>
+              <% end %>
+              <%= total_counts_second.length %>票
+                <%= @post.second_choice %>
+            </li>
+          </div>
+        <% end %>
+
+        <% if @post.third_choice.present? %>
+          <div class="post-choice-wrapper-show">
+            <li class="post-choice">
+              <% total_counts_third = [] %>
+              <% choice_counts = @post.choice_counts %>
+              <% choice_counts.each do |choice_counts| %>
+                <% if choice_counts.third_choice_count == true %>
+                  <% total_counts_third << 1 %>
+                <% end %>
+              <% end %>
+              <%= total_counts_third.length %>票
+                <%= @post.third_choice %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="post_show_edit_destroy"> 
+    <% if user_signed_in? && current_user.id == @post.user.id %>
+      <%= link_to "投稿の編集", edit_post_path, method: :get, class: "post_show_edit" %>
+      <p class="or-text">or</p>
+      <%= link_to "投稿の削除", post_path, method: :delete, class: "post_show_destroy" %>
     <% end %>
-    <% if @post.second_choice.present? %>
-      <div class="post-choice-wrapper">
-        <li class="post-choice">
-          <%= @post.second_choice %>
-        </li>
-      </div>
-    <% end %>
-    <% if @post.third_choice.present? %>
-      <div class="post-choice-wrapper">
-        <li class="post-choice">
-          <%= @post.third_choice %>
-        </li>
-      </div>
-    <% end %>
-  </ul>
+  </div>
 </div>
 
-<div class="content_comments">
-
-  <div class="content_comments_header">
-    <p class="content_comment_title">COMMENT</p>
-    <p class="content_comment_subtitle">コメント</p>
-  </div>
-
-  <div class="comment_container">
-    <%= form_with(local: true) do |f| %>
-      <div class="field">
-        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+<% if @post.comment == 1 %>
+  <div class="content_comments">
+    <div class="content_comments_header">
+      <p class="content_comment_title">COMMENT</p>
+      <p class="content_comment_subtitle">コメント</p>
+    </div>
+    <% if user_signed_in? %>
+      <div class="comment_container">
+        <%= form_with(model: [@post, @comment], local: true) do |f| %>
+          <div class="field">
+            <%= f.text_area :comment, placeholder: "コメントする", rows: "2" %>
+          </div>
+          <div class="action">
+            <%= f.submit "SEND" ,class: "submit"%>
+          </div>
+        <% end %>
       </div>
-      <div class="action">
-        <%= f.submit "SEND" ,class: "submit"%>
+    <% else %>
+    <div class="show_comment">※コメントするにはログインをして下さい。</div>
+    <% end %>
+    <% @comments.each do |comment| %>
+      <div class="content_comment">
+      <p class="content_comment_nickname"><%= link_to comment.user.nickname, "/users/#{@comment.user_id}" %></p>
+      <span class="content_comment_content"><%= l comment.created_at %></span>
+      <p class="content_comment_content"><%= comment.comment%></p>
       </div>
     <% end %>
   </div>
-
-  <div class="content_comment">
-    <span class="content_comment_nickname">Nickname:</span>
-    <span class="content_comment_content">コメント内容</span>
+<% else %>
+  <div class="content_comments">
+    <div class="content_comments_header">
+      <p class="content_comment_title">COMMENT</p>
+      <p class="content_comment_subtitle">コメント</p>
+    </div>
   </div>
-
-</div>
+  <div class="content_comments_except">
+    <p>コメントは開放されていません。</p>
+  </div>
+<% end %>
 
 
 <div class="posts-footer">
