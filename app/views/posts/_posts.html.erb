@@ -79,7 +79,7 @@
             <% end %>
           </ul>
         <% else %>
-        <p>※投票：するには、ログインが必要です。</p>
+        <p>※投票するには、ログインが必要です。</p>
           <ul>
             <% if post.first_choice.present? %>
                 <div class="post-choice-wrapper">
@@ -107,7 +107,7 @@
                       <% total_counts_second << 1 %>
                     <% end %>
                   <% end %>
-                  <%= total_counts_second.length %>票：:
+                  <%= total_counts_second.length %>票：
                     <%= post.second_choice %>
                 </li>
               </div>
@@ -123,7 +123,7 @@
                       <% total_counts_third << 1 %>
                     <% end %>
                   <% end %>
-                  <%= total_counts_third.length %>票：：
+                  <%= total_counts_third.length %>票：
                     <%= post.third_choice %>
                 </li>
               </div>
