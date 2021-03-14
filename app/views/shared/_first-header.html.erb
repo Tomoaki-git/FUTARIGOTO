@@ -1,4 +1,22 @@
 <div class="first_header">
+
   <%= link_to image_tag("/images/icon.jpg", class:"first_header_icon"), posts_path %>
-  <%= link_to '> 新規投稿', new_post_path, class: "new_post" %>
+
+
+
+</div>
+
+<div class="subheader_wrapper">
+
+  <%= link_to '> TOP', "/", class: "subheader_column" %>
+
+  <% if user_signed_in? %> 
+    <%= link_to "> #{current_user.nickname}さん", user_path(current_user.id), class: "subheader_column" %>
+    <%= link_to '> 新規投稿', new_post_path, class: "subheader_column" %>
+    <%= link_to '> ログアウト', destroy_user_session_path, method: :delete, class: "subheader_column" %>
+  <% else %>
+    <%= link_to '> 新規登録', new_user_registration_path, class: "subheader_column" %>
+    <%= link_to '> ログイン', new_user_session_path, class: "subheader_column" %>
+  <% end %>
+
 </div>

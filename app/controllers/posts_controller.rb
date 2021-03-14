@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
 
   def top
   end
 
   def index
-    @post = Post.all.order(created_at: :DESC)
+    @posts = Post.includes(:user, :choice_counts).order(created_at: :DESC)
   end
 
   def new
@@ -12,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     @post = Post.create(post_params)
     if @post.save
       redirect_to action: :index
@@ -22,6 +24,28 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    if @post.save
+      redirect_to action: :show
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to action: :index
   end
 
   private
@@ -36,8 +60,6 @@ class PostsController < ApplicationController
       :third_choice,
       :comment
     )
-    .merge(
-      user_id: current_user.id
-    )
+    .merge(user_id: current_user.id)
   end
 end

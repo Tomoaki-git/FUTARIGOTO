@@ -1,0 +1,34 @@
+<div class="posts-header">
+  <%= render "shared/first-header"%>
+</div>
+
+<div class="user_show_main">
+  <div class="inner">
+    <div class="user_show_wrapper">
+      <table class="user_table">
+        <tbody>
+          <tr>
+            <td class="table__col"><%= "#{@user.nickname}さんのページ" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="user_edit_wrapper">
+        <%= link_to 'ユーザー内容編集', edit_user_registration_path, class: "user_edit" %>
+      </div>
+
+      <h2 class="user_showpage_heading">
+        <%= "#{@user.nickname}さんの投稿一覧" %>
+      </h2>
+    
+    </div>
+    
+      <%= render partial: 'posts/posts', locals:{posts: @user.posts} %>
+    
+
+  </div>
+</div>
+
+<div class="posts-footer">
+  <%= render "shared/first-footer"%>
+</div>
