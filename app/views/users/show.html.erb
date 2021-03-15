@@ -13,9 +13,11 @@
         </tbody>
       </table>
 
+    <% if user_signed_in? && current_user.id == @user.id %>
       <div class="user_edit_wrapper">
         <%= link_to 'ユーザー内容編集', edit_user_registration_path, class: "user_edit" %>
       </div>
+    <% end %>
 
       <h2 class="user_showpage_heading">
         <%= "#{@user.nickname}さんの投稿一覧" %>
