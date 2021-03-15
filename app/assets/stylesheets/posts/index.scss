@@ -1,4 +1,4 @@
-a {
+* {
   text-decoration: none;
 }
 
@@ -8,6 +8,10 @@ a {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.post-wrapper{
+  text-decoration: none;
 }
 
 .posts-title{
@@ -32,45 +36,6 @@ a {
   width: 85vw;
 }
 
-.post_search{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 auto;
-}
-
-.search-form{
-  font-size: 15px;
-  color: #2B8099;
-  text-align: center;
-  width: 20vw;
-}
-
-.search-form-box{
-  font-size: 15px;
-  text-align: center;
-  width: 20vw;
-  border: 2px solid #2B8099;
-  border-radius: 2px;
-}
-
-.search-form-btn{
-  font-size: 15px;
-  color: #F2F9F7;
-  background-color:#2B8099;
-  text-align: center;
-  width: 5vw;
-  border-radius: 2px;
-}
-
-.search-form-btn:hover{
-  color: #2B8099;
-  background-color:#F2F9F7;
-  text-align: center;
-  width: 5vw;
-  border-radius: 2px;
-}
-
 .posts{
   color: black;
   text-decoration: none;
@@ -84,7 +49,7 @@ a {
   text-decoration: none;
   position: relative;
   height: auto;
-  width: 200px;
+  width: 250px;
   margin: 30px;
   padding: 20px 20px 30px;
   border: 2px solid #2B8099;
@@ -101,7 +66,7 @@ a {
   color: black;
   height: 77px;
   margin: 15px 15px 15px 0;
-  padding-bottom: 45px;
+  padding-bottom: 50px;
   border-bottom: 2px solid #2B8099;
   overflow: hidden;
   width: 100%;

@@ -8,7 +8,7 @@
         <p>
           <%= "あと#{((post.created_at - DateTime.now)/ 60 / 60 / 24 + 4).floor}"+"日" %>
         </p>
-        <%= link_to "/posts/#{post.id}" do%>
+        <%= link_to "/posts/#{post.id}", class: "post-wrapper" do%>
           <p class="post-title">
             <%= post.title %>
           </p>
