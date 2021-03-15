@@ -160,7 +160,7 @@
     <% end %>
     <% @comments.each do |comment| %>
       <div class="content_comment">
-      <p class="content_comment_nickname"><%= link_to comment.user.nickname, "/users/#{@comment.user_id}" %></p>
+      <p class="content_comment_nickname"><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></p>
       <span class="content_comment_content"><%= l comment.created_at %></span>
       <p class="content_comment_content"><%= comment.comment%></p>
       </div>
