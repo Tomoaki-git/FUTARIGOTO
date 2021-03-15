@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'top'
+      get 'search'
     end
     resources :comments, only: :create
     resources :likes, only: :create

@@ -16,14 +16,14 @@
       <br>
       <%= f.submit '検索', class: "search-form-btn" %>
     <% end %>
-    
-    <%= render partial: 'posts', locals: {posts: @posts, q: @q} %>
-    
-  </div>
-</div>
 
-<div class="posts-title">
-  <%= paginate @posts , class: "pagination"%>
+    <% if @results.present? %>
+      <%= render partial: 'posts', locals: {posts: @results, q: @q} %>
+    <% else %>
+      <p class="search-results">検索に一致する投稿はありませんでした。</p>
+    <% end %>
+
+  </div>
 </div>
 
 <div class="posts-footer">

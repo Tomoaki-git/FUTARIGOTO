@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_q, only: [:index, :search]
 
   def top
   end
 
   def index
-    @posts = Post.includes(:user, :choice_counts).order(created_at: :DESC)
+    @posts = Post.includes(:user, :choice_counts).order(created_at: :ASC).page(params[:page]).per(12)
   end
 
   def new
@@ -47,7 +48,15 @@ class PostsController < ApplicationController
     redirect_to action: :index
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
+
+  def set_q
+    @q = Post.ransack(params[:q])
+  end
 
   def post_params
     params.require(:post)

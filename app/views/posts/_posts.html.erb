@@ -1,4 +1,5 @@
 <div class="posts">
+
   <% posts.each do |post| %>
     <% if post.created_at >= Date.today.days_ago(5) || post.id == current_user.id%>
       <div class="posts-content">

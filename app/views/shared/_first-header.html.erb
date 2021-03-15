@@ -9,6 +9,7 @@
 <div class="subheader_wrapper">
 
   <%= link_to '> TOP', "/", class: "subheader_column" %>
+  <%= link_to '> 投稿一覧', posts_path, class: "subheader_column" %>
 
   <% if user_signed_in? %> 
     <%= link_to "> #{current_user.nickname}さん", user_path(current_user.id), class: "subheader_column" %>
