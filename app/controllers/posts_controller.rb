@@ -54,10 +54,6 @@ class PostsController < ApplicationController
 
   private
 
-  def set_q
-    @q = Post.ransack(params[:q])
-  end
-
   def post_params
     params.require(:post)
     .permit(
@@ -70,4 +66,9 @@ class PostsController < ApplicationController
     )
     .merge(user_id: current_user.id)
   end
+
+  def set_q
+    @q = Post.ransack(params[:q])
+  end
+
 end

@@ -9,7 +9,7 @@ class ChoiceCountsController < ApplicationController
     choice_count[:post_id] = params[:post_id]
     choice_count[:user_id] =  current_user.id
     choice_count.save
-    redirect_to posts_path
+    redirect_to "/posts/#{params[:post_id]}"
   end
 
   def create_second
@@ -20,7 +20,7 @@ class ChoiceCountsController < ApplicationController
     choice_count[:post_id] = params[:post_id]
     choice_count[:user_id] =  current_user.id
     choice_count.save
-    redirect_to posts_path
+    redirect_to "/posts/#{params[:post_id]}"
   end
 
   def create_third
@@ -31,6 +31,6 @@ class ChoiceCountsController < ApplicationController
     choice_count[:post_id] = params[:post_id]
     choice_count[:user_id] =  current_user.id
     choice_count.save
-    redirect_to posts_path
+    redirect_to "/posts/#{params[:post_id]}"
   end
 end

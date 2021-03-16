@@ -2,6 +2,10 @@ a, p, div{
   text-decoration: none;
 }
 
+a:hover{
+  text-decoration: none;
+  }
+
 .index-contents{
   min-height: calc(100vh-30vh);
   background-color: #FEFFFF;

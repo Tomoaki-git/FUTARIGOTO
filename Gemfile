@@ -60,3 +60,5 @@ gem 'pry-rails'
 gem 'kaminari'
 
 gem 'ransack'
+
+gem 'acts-as-taggable-on', '~> 6.0'
