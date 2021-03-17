@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_130755) do
+ActiveRecord::Schema.define(version: 2021_03_13_081430) do
 
   create_table "choice_counts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "first_choice_count", null: false
