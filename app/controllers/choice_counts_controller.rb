@@ -33,4 +33,20 @@ class ChoiceCountsController < ApplicationController
     choice_count.save
     redirect_to "/posts/#{params[:post_id]}"
   end
+
+  def destroy
+    binding.pry
+    @choice_count = ChoiceCount.find[post_id: params[:post_id]]
+    @choice_count.destroy
+    redirect_to "/posts/#{params[:post_id]}"
+  end
+
+  def destroy_first
+    
+  end
+
+  def destroy_first
+    
+  end
+
 end

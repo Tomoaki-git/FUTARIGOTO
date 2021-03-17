@@ -17,7 +17,7 @@
       <%= f.submit '検索', class: "search-form-btn" %>
     <% end %>
     
-    <%= render partial: 'posts', locals: {posts: @posts, q: @q} %>
+    <%= render partial: 'posts', locals: {posts: @posts, q: @q, choice_counts: @choice_counts} %>
     
   </div>
 </div>

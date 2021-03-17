@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     end
     resources :comments, only: :create
     resources :likes, only: :create
-    # resources :choice_counts, only: :create
     resources :choice_counts do
       collection do
         post 'create_first'
