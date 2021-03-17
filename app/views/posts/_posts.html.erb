@@ -1,7 +1,8 @@
 <div class="posts">
 
   <% posts.each do |post| %>
-    <% if post.created_at >= Date.today.days_ago(5) || post.id == current_user.id%>
+    <% if post.created_at >= Date.today.days_ago(3) %>
+
       <div class="posts-content">
 
         <%= link_to "#{post.user.nickname}さん", user_path(post.user.id) %>
@@ -181,10 +182,6 @@
               <% end %>
             </ul>
           <% end %>
-          
-          
-          
-
         <% else %>
           <p>※投票するには、ログインが必要です。</p>
           <ul>
