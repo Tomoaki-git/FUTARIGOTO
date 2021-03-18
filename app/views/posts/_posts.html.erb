@@ -17,7 +17,7 @@
           <div class="post-content">
             <%= post.content %>
           </div>
-          
+
           <div class="heart-wrapper">
             <%= link_to '♡', post_likes_path(post.id), class: "heart", method: :post  %>
             <%= post.likes.count %>
@@ -93,7 +93,7 @@
               <% end %>
 
               <% if post.third_choice.present? %>
-                <% if ChoiceCount.exists?(post_id: post.id, user_id: current_user.id, second_choice_count: 1) %>
+                <% if ChoiceCount.exists?(post_id: post.id, user_id: current_user.id, third_choice_count: 1) %>
                     <div class="post-choice-wrapper">
                       <li class="post-choice-chosen">
                         <% total_counts_third = [] %>
