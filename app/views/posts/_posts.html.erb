@@ -17,6 +17,7 @@
           <div class="post-content">
             <%= post.content %>
           </div>
+          
           <div class="heart-wrapper">
             <%= link_to '♡', post_likes_path(post.id), class: "heart", method: :post  %>
             <%= post.likes.count %>
