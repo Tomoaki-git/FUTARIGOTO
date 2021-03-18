@@ -84,7 +84,7 @@
         <% end %>
 
         <% if @post.third_choice.present? %>
-          <% if ChoiceCount.exists?(post_id: @post.id, user_id: current_user.id, second_choice_count: 1) %>
+          <% if ChoiceCount.exists?(post_id: @post.id, user_id: current_user.id, third_choice_count: 1) %>
               <div class="post-choice-wrapper">
                 <li class="post-choice-chosen">
                   <% total_counts_third = [] %>
@@ -138,7 +138,7 @@
         <% end %>
 
         <% if @post.second_choice.present? %>
-          <%= link_to create_second_post_choice_counts_path(@post), params: { first_choice_count: 1 }, method: :post do %>
+          <%= link_to create_second_post_choice_counts_path(@post), params: { second_choice_count: 1 }, method: :post do %>
             <div class="post-choice-wrapper">
               <li class="post-choice">
                 <% total_counts_second = [] %>
@@ -156,7 +156,7 @@
         <% end %>
 
         <% if @post.third_choice.present? %>
-          <%= link_to create_third_post_choice_counts_path(@post), params: { first_choice_count: 1 }, method: :post do %>
+          <%= link_to create_third_post_choice_counts_path(@post), params: { third_choice_count: 1 }, method: :post do %>
             <div class="post-choice-wrapper">
               <li class="post-choice">
                 <% total_counts_third = [] %>
