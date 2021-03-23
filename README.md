@@ -1,24 +1,69 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| column             | Type    | Options                       |
+| ------------------ | ------- | ----------------------------- |
+| email              | string  | null: false, uniqueness: true |
+| nickname           | string  | null: false                   |
+| encrypted_password | string  | null: false                   |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :posts
+- has_many :comments
 
-* Configuration
+## posts テーブル
 
-* Database creation
+| column          | Type        | Options                        |
+| --------------- | ----------- | ------------------------------ |
+| title           | string      | null: false                    |
+| content         | text        | null: false                    |
+| first_choice    | string      |                                |
+| second_choice   | string      |                                |
+| third_choice    | string      |                                |
+| comment         | boolean     |                                |
+| user            | references  | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_one :comments
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments テーブル
 
-* Deployment instructions
+| column          | Type        | Options                        |
+| --------------- | ----------- | ------------------------------ |
+| comment         | string      | null: false                    |
+| user            | references  | null: false, foreign_key: true |
+| post            | references  | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :post
+
+## choice_counts テーブル
+
+| column               | Type        | Options                        |
+| -------------------- | ----------- | ------------------------------ |
+| first_choice_count   | boolean     |                                |
+| second_choice_count  | boolean     |                                |
+| third_choice_count   | boolean     |                                |
+| user                 | references  | null: false, foreign_key: true |
+| post                 | references  | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :post
+
+## likes テーブル
+
+| column     | Type        | Options                        |
+| ---------- | ----------- | ------------------------------ |
+| comment    | references  | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :post
