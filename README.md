@@ -32,16 +32,12 @@ https://yotsuba-posts.herokuapp.com/
 - 投稿詳細機能
 - 投稿コメント機能
 - ページネーション機能(gem 'kaminari')
-
-## DEMO
-
+- 
 ### トップページ
+<img width="1249" alt="6d66a0050905c12e8223531b40c6f4c8" src="https://user-images.githubusercontent.com/77450533/112806418-b67a1f80-90b1-11eb-9145-54382f7ab754.png">
 
 ### 投稿一覧画面
-
-### 新規投稿
-
-## 工夫したポイント
+![スクリーンショット 2021-03-29 17 37 11](https://user-images.githubusercontent.com/77450533/112810108-af551080-90b5-11eb-9255-51af30f0157f.png)
 
 ### バックエンド
 Ruby on Rails
